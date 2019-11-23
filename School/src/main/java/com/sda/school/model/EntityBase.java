@@ -6,6 +6,8 @@ import java.util.Date;
 @MappedSuperclass
 public class EntityBase  {
 
+    //  FIELDS  //
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", unique = true, updatable = false, nullable = false)
@@ -18,6 +20,9 @@ public class EntityBase  {
     @Column(name = "updated_at")
     @Temporal(TemporalType.TIMESTAMP)
     private Date updatedAt;
+
+
+    //  METHODS //
 
     public void setCreatedAt(Date createdAt) {
         this.createdAt = createdAt;

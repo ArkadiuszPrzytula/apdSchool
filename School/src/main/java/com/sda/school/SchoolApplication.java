@@ -2,9 +2,8 @@ package com.sda.school;
 
 import com.google.common.collect.Lists;
 import com.sda.school.model.Grade;
-import com.sda.school.model.Person;
+import com.sda.school.model.PersonInformation.Person;
 import com.sda.school.model.Student;
-import sun.security.util.Pem;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -26,7 +25,6 @@ public class SchoolApplication {
 
         Student s = new Student();
         s.setPerson(p);
-        s.setGrades(Lists.newArrayList(new Grade(5, s), new Grade(3, s)));
 
         em.persist(s);
 

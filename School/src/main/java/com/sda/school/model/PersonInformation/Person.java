@@ -1,4 +1,7 @@
-package com.sda.school.model;
+package com.sda.school.model.PersonInformation;
+
+import com.sda.school.model.EntityBase;
+import com.sda.school.model.enums.Gender;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -6,6 +9,8 @@ import java.util.Date;
 @Entity(name = "Person")
 @Table(name = "person")
 public class Person extends EntityBase {
+
+    //  FIELDS  //
 
     @Column(name = "first_name", nullable = false)
     private String firstName;
@@ -19,6 +24,16 @@ public class Person extends EntityBase {
     @Column(name = "gender")
     @Enumerated(EnumType.STRING)
     private Gender gender;
+
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "address_id")
+    private Address address;
+
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "contact_id")
+    private Contact contact;
+
+    //  METHODS //
 
     public String getFirstName() {
         return firstName;
